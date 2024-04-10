@@ -61,25 +61,25 @@ namespace Libery2
             finally { if(connection != null)connection.Close();}
 
         }
-        public void SelectBooks()
-        {
-            try
-            {
-                connection.Open();
-                string command = $@"Select title AS Title, [author]= FORMATMESSAGE ('%s %s', first_name, last_name)
-                                From Books 
-                               JOIN Authors ON author = author_id";
-                cmd = new SqlCommand(command, connection);
-                SqlDataReader reader2 = cmd.ExecuteReader();
-                Console.WriteLine($@"{reader2.GetName(0).ToString().PadRight(32)}{reader2.GetName(1).ToString().PadRight(32)}");
-                while (reader2.Read())
-                {
-                    Console.WriteLine($@"{reader2[0].ToString().PadRight(32)}{reader2[1].ToString().PadRight(32)}");
-                }
-            }
-            finally {if(connection != null)connection.Close(); }
+        //public void SelectBooks()
+        //{
+        //    try
+        //    {
+        //        connection.Open();
+        //        string command = $@"Select title AS Title, [author]= FORMATMESSAGE ('%s %s', first_name, last_name)
+        //                        From Books 
+        //                       JOIN Authors ON author = author_id";
+        //        cmd = new SqlCommand(command, connection);
+        //        SqlDataReader reader2 = cmd.ExecuteReader();
+        //        Console.WriteLine($@"{reader2.GetName(0).ToString().PadRight(32)}{reader2.GetName(1).ToString().PadRight(32)}");
+        //        while (reader2.Read())
+        //        {
+        //            Console.WriteLine($@"{reader2[0].ToString().PadRight(32)}{reader2[1].ToString().PadRight(32)}");
+        //        }
+        //    }
+        //    finally {if(connection != null)connection.Close(); }
      
-        }
+        //}
         public void InsertBooks(string author, string title, string pages, string price)
         {
             try
@@ -97,10 +97,32 @@ namespace Libery2
                             VALUES('{author}', '{title}', '{pages}', '{price}')
                         END";
                 cmd = new SqlCommand(command, connection);
-               //SqlDataReader reader2 = cmd.ExecuteReader();
                 cmd.ExecuteNonQuery();    
             }
-            finally { if(connection != null) connection.Close(); }
+            finally 
+            { 
+                if(connection != null) connection.Close(); }
+        }
+        public void SelectBooks()
+        {
+            try
+            {
+                connection.Open();
+                string command = $@"Select title AS Title, 
+                                [author]= FORMATMESSAGE ('%s %s', first_name, last_name)
+                                From Books, Authors
+                                Where author = author_id
+                                AND author_id = 3";
+                cmd = new SqlCommand(command, connection);
+                SqlDataReader reader2 = cmd.ExecuteReader();
+                Console.WriteLine($@"{reader2.GetName(0).ToString().PadRight(32)}{reader2.GetName(1).ToString().PadRight(32)}");
+                while (reader2.Read())
+                {
+                    Console.WriteLine($@"{reader2[0].ToString().PadRight(32)}{reader2[1].ToString().PadRight(32)}");
+                }
+            }
+            finally { if (connection != null) connection.Close(); }
+
         }
     }
 }

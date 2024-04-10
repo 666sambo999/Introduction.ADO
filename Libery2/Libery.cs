@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -22,21 +23,47 @@ namespace Libery2
         }
         ~Libery() { connection.Close(); }
 
-        public void Insertuthors(string last_name, string first_name)
+        public void InsertAuthors(string last_name, string first_name)
         {
             try 
             {
                 connection.Open();
+                //string command = $@" 
+                //    IF NOT EXISTS ( SELECT author_id From Authors 
+                //                    Where last_name = '{last_name}'
+                //                    And first_name = '{first_name}') 
+                //        BEGIN 
+                //            INSERT INTO Authors 
+                //                (last_name, first_name)
+                //            VALUES ('{last_name}','{first_name}')
+                //        END";
                 string command = $@" 
                     IF NOT EXISTS ( SELECT author_id From Authors 
-                                    Where last_name = '{last_name}'
-                                    And first_name = '{first_name}') 
+                                    Where last_name = @paramLastName
+                                    And first_name = @paramFirstName)
                         BEGIN 
                             INSERT INTO Authors 
                                 (last_name, first_name)
-                            VALUES ('{last_name}','{first_name}')
+                            VALUES (@paramLastName, @paramFirstName)
                         END";
                 cmd = new SqlCommand(command, connection);
+                // Параметры добавления (парметризованные запросы )----------------------------------------
+                //SqlParameter parameter = new SqlParameter("paramLastName", SqlDbType.NVarChar);
+                //SqlParameter parameter2 = new SqlParameter("paramFirstName", SqlDbType.NVarChar);
+                //parameter.Value = last_name;
+                //parameter2.Value =  first_name;
+                //cmd.Parameters.Add(parameter);
+                //cmd.Parameters.Add(parameter2);
+                //---------------------------------------------------------//
+                //SqlParameter[] sqls = new SqlParameter[]
+                //{
+                //    new SqlParameter("paramLastName", last_name),
+                //    new SqlParameter("paramFirstName", first_name)
+                //};
+                //cmd.Parameters.AddRange(sqls);
+                cmd.Parameters.AddWithValue("paramLastName", last_name);
+                cmd.Parameters.AddWithValue("paramFirstName", first_name);
+
                 cmd.ExecuteNonQuery();  
             }
             finally 

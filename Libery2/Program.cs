@@ -24,7 +24,8 @@ namespace Libery2
                                     MultiSubnetFailover=False";
             Libery libery = new Libery(connection_string);
             libery.InsertBooks("31", "Герой нашего времени", "256", "150");
-            libery.Insertuthors("Michail", "Lermontov");
+            //libery.InsertAuthors("Michail", "Lermontov");
+            libery.InsertAuthors("Tolstoi", "Lev");
             libery.SelectAuthors();
             libery.SelectBooks();
 

@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Runtime.CompilerServices;
 
 namespace Libery2
 {
@@ -15,7 +17,13 @@ namespace Libery2
         SqlConnection connection;
 
         public SqlCommand cmd {  get; set; }
-
+        public Libery():this(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString)
+        { 
+            //connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            //connection = new SqlConnection(connectionString);
+            //cmd = new SqlCommand(connectionString);
+            Console.WriteLine(connectionString);
+        }
         public Libery(string connectionString)
         {
             this.connectionString = connectionString;

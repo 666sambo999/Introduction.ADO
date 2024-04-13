@@ -19,7 +19,7 @@ namespace Libery3
         SqlConnection connection;
         SqlDataReader reader;
         DataTable table;
-        
+
         public MainForm()
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace Libery3
             MessageBox.Show(this, connectionString, "ConnectionString", MessageBoxButtons.OK, MessageBoxIcon.Information);
             richTextBoxQiery.SelectAll();
             richTextBoxQiery.SelectionAlignment = HorizontalAlignment.Center;
+            LoadTables();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -42,16 +43,37 @@ namespace Libery3
             connection.Open();
             reader = cmd.ExecuteReader();
             table = new DataTable();
-            for(int i = 0; i < reader.FieldCount;i++ )table.Columns.Add(reader.GetName(i)); 
-            while(reader.Read()) 
-            { 
+            for (int i = 0; i < reader.FieldCount; i++) table.Columns.Add(reader.GetName(i));
+            while (reader.Read())
+            {
                 DataRow row = table.NewRow();
                 for (int i = 0; i < reader.FieldCount; i++) row[i] = reader[i];
                 table.Rows.Add(row);
             }
             dataGridView1.DataSource = table;
 
-            connection.Close(); 
+            connection.Close();
         }
+        public void LoadTables()
+        {
+            string commandLine = @"SELECT table_name FROM information_schema.tables";
+            SqlCommand cmd = new SqlCommand(commandLine, connection);
+            connection.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                comboBoxTable.Items.Add(reader[0]);
+            }
+            reader.Close();
+            connection.Close();
+        }
+    
+            //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+            //{
+
+            //}
+    
     }
+           
 }
+

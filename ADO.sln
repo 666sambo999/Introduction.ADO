@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLibery", "ConsoleLib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libery2", "Libery2\Libery2.csproj", "{B5F4651A-03D3-49DA-AA2C-F533DFB35ACD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libery3", "Libery3\Libery3.csproj", "{44CBF3A3-D5DA-439E-B467-6407B0AF2113}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B5F4651A-03D3-49DA-AA2C-F533DFB35ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F4651A-03D3-49DA-AA2C-F533DFB35ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F4651A-03D3-49DA-AA2C-F533DFB35ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44CBF3A3-D5DA-439E-B467-6407B0AF2113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44CBF3A3-D5DA-439E-B467-6407B0AF2113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44CBF3A3-D5DA-439E-B467-6407B0AF2113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44CBF3A3-D5DA-439E-B467-6407B0AF2113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,7 +25,7 @@ namespace Libery3
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
             connection = new SqlConnection(connectionString);
-            MessageBox.Show(this, connectionString, "ConnectionString", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show(this, connectionString, "ConnectionString", MessageBoxButtons.OK, MessageBoxIcon.Information);
             richTextBoxQiery.SelectAll();
             richTextBoxQiery.SelectionAlignment = HorizontalAlignment.Center;
             LoadTables();
@@ -39,22 +39,23 @@ namespace Libery3
         private void btnExecute_Click(object sender, EventArgs e)
         {
             string cmdLine = richTextBoxQiery.Text;
-            SqlCommand cmd = new SqlCommand(cmdLine, connection);
-            connection.Open();
-            reader = cmd.ExecuteReader();
-            table = new DataTable();
-            for (int i = 0; i < reader.FieldCount; i++) table.Columns.Add(reader.GetName(i));
-            while (reader.Read())
-            {
-                DataRow row = table.NewRow();
-                for (int i = 0; i < reader.FieldCount; i++) row[i] = reader[i];
-                table.Rows.Add(row);
-            }
-            dataGridView1.DataSource = table;
+            LoadDataToGrid(cmdLine);
+            //SqlCommand cmd = new SqlCommand(cmdLine, connection);
+            //connection.Open();
+            //reader = cmd.ExecuteReader();
+            //table = new DataTable();
+            //for (int i = 0; i < reader.FieldCount; i++) table.Columns.Add(reader.GetName(i));
+            //while (reader.Read())
+            //{
+            //    DataRow row = table.NewRow();
+            //    for (int i = 0; i < reader.FieldCount; i++) row[i] = reader[i];
+            //    table.Rows.Add(row);
+            //}
+            //dataGridView1.DataSource = table;
 
-            connection.Close();
+            //connection.Close();
         }
-        public void LoadTables()
+        public void LoadTables()// загружаем таблицы в лист
         {
             string commandLine = @"SELECT table_name FROM information_schema.tables";
             SqlCommand cmd = new SqlCommand(commandLine, connection);
@@ -67,11 +68,36 @@ namespace Libery3
             reader.Close();
             connection.Close();
         }
-    
-            //private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-            //{
+        void LoadDataToGrid(string command)
+        {
+            SqlCommand cmd = new SqlCommand(command, connection);
+            connection.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            table = new DataTable();
+            for (int i =0; i < reader.FieldCount; i++) 
+            {
+                table.Columns.Add(reader.GetName(i));
+            }
+            while (reader.Read())
+            {
+                DataRow row = table.NewRow();
+                for (int i =0; i< reader.FieldCount; i++)
+                {
+                    row[i] = reader[i];
+                }
+                table.Rows.Add(row);
+            }
+            dataGridView1.DataSource = table;
 
-            //}
+            connection.Close();
+        }
+    
+         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             string tableName = comboBoxTable.Text;
+             string command = $"Select * FROM {tableName}";
+             LoadDataToGrid(command);
+         }
     
     }
            

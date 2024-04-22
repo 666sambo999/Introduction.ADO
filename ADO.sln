@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiberyDis", "LiberyDis\Libe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Police_base", "Police_base\Police_base.csproj", "{39DBF9E5-4F73-4F6B-A945-48963E073FCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy_PD", "Academy_PD\Academy_PD.csproj", "{34BA861C-EFD7-48D4-AA2C-C1AA2721A299}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{39DBF9E5-4F73-4F6B-A945-48963E073FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39DBF9E5-4F73-4F6B-A945-48963E073FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39DBF9E5-4F73-4F6B-A945-48963E073FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34BA861C-EFD7-48D4-AA2C-C1AA2721A299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34BA861C-EFD7-48D4-AA2C-C1AA2721A299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34BA861C-EFD7-48D4-AA2C-C1AA2721A299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34BA861C-EFD7-48D4-AA2C-C1AA2721A299}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -79,6 +79,11 @@ namespace Police_base
                 adapter.Fill(set, "Violations");
                 dataGridViolation.DataSource = set.Tables["Violations"];
             }
+            //DataViewManager manager = new DataViewManager(set);
+            //manager.DataViewSettings["Violations"].RowFilter = $"ViolationsRelation.responsibility = {cbViolation.SelectedIndex}";
+            //DataView view = manager.CreateDataView(set.Tables["Violations"]);
+            //dataGridViolation.DataSource = view;
+
         }
     }
 }

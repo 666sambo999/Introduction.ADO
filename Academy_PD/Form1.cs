@@ -38,7 +38,8 @@ namespace Academy_PD
             LoadStudents();
             LoadGroupsCB("Groups", "group_name", cbGroups);
             LoadGroupsCB("Directions", "direction_name", cbStud);
-
+            CountStudent();
+            CountGroups();
         }
         
         void LoadStudents(string condition = null)
@@ -55,7 +56,7 @@ Select
 FROM Students
 JOIN Groups ON [group] = group_id
 JOIN Directions ON direction= direction_id";
-            if (condition != null)
+            if (condition != null && !condition.Contains("Все"))
             {
                 cmd += $" WHERE {condition}";
             }
@@ -124,16 +125,29 @@ JOIN Directions ON direction= direction_id";
 
             LoadStudents($"direction_name = '{cbStud.SelectedItem.ToString()}'");
             CountStudent();
+            CountGroups();
         }
 
         private void cbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadStudents($"group_name = '{cbGroups.SelectedItem.ToString()}'");
             CountStudent();
+            CountGroups();
         }
         void CountStudent ()
         {
-            lCountStud.Text = $"Количество студентов: {(dataGridViewStud.RowCount-1).ToString()}"; 
+            label1.Text = $"Количество студентов: {(dataGridViewStud.RowCount-1).ToString()}"; 
+        }
+
+        void CountGroups()
+        {
+            label2.Text = $"Количество групп: {(cbGroups.Items.Count-1).ToString()}"; 
+        }
+        
+        
+        private void labelDirectionStud_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

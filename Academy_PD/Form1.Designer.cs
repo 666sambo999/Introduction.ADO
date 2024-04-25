@@ -40,7 +40,8 @@
             this.tpGroups = new System.Windows.Forms.TabPage();
             this.tpSchudule = new System.Windows.Forms.TabPage();
             this.tpTeacher = new System.Windows.Forms.TabPage();
-            this.lCountStud = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tpStud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStud)).BeginInit();
@@ -61,7 +62,8 @@
             // 
             // tpStud
             // 
-            this.tpStud.Controls.Add(this.lCountStud);
+            this.tpStud.Controls.Add(this.label2);
+            this.tpStud.Controls.Add(this.label1);
             this.tpStud.Controls.Add(this.btnStud);
             this.tpStud.Controls.Add(this.dataGridViewStud);
             this.tpStud.Controls.Add(this.cbGroups);
@@ -93,9 +95,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStud.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewStud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStud.Location = new System.Drawing.Point(7, 105);
+            this.dataGridViewStud.Location = new System.Drawing.Point(7, 92);
             this.dataGridViewStud.Name = "dataGridViewStud";
-            this.dataGridViewStud.Size = new System.Drawing.Size(654, 299);
+            this.dataGridViewStud.Size = new System.Drawing.Size(654, 315);
             this.dataGridViewStud.TabIndex = 4;
             // 
             // cbGroups
@@ -121,18 +123,19 @@
             // labelDirectionStud
             // 
             this.labelDirectionStud.AutoSize = true;
-            this.labelDirectionStud.Location = new System.Drawing.Point(8, 59);
+            this.labelDirectionStud.Location = new System.Drawing.Point(8, 51);
             this.labelDirectionStud.Name = "labelDirectionStud";
             this.labelDirectionStud.Size = new System.Drawing.Size(122, 13);
             this.labelDirectionStud.TabIndex = 1;
             this.labelDirectionStud.Text = "направление обучения";
+            this.labelDirectionStud.Click += new System.EventHandler(this.labelDirectionStud_Click);
             // 
             // cbStud
             // 
             this.cbStud.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStud.FormattingEnabled = true;
-            this.cbStud.Location = new System.Drawing.Point(146, 59);
+            this.cbStud.Location = new System.Drawing.Point(146, 51);
             this.cbStud.Name = "cbStud";
             this.cbStud.Size = new System.Drawing.Size(329, 21);
             this.cbStud.TabIndex = 0;
@@ -168,14 +171,23 @@
             this.tpTeacher.Text = "Преподаватели";
             this.tpTeacher.UseVisualStyleBackColor = true;
             // 
-            // lCountStud
+            // label1
             // 
-            this.lCountStud.AutoSize = true;
-            this.lCountStud.Location = new System.Drawing.Point(7, 419);
-            this.lCountStud.Name = "lCountStud";
-            this.lCountStud.Size = new System.Drawing.Size(120, 13);
-            this.lCountStud.TabIndex = 6;
-            this.lCountStud.Text = "Количество студентов";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 410);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Количество студентов";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(173, 410);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Количество групп";
             // 
             // FormMy
             // 
@@ -207,7 +219,8 @@
         private System.Windows.Forms.ComboBox cbGroups;
         private System.Windows.Forms.Label labelGroups;
         private System.Windows.Forms.Button btnStud;
-        private System.Windows.Forms.Label lCountStud;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -40,6 +40,7 @@
             this.tpGroups = new System.Windows.Forms.TabPage();
             this.tpSchudule = new System.Windows.Forms.TabPage();
             this.tpTeacher = new System.Windows.Forms.TabPage();
+            this.lCountStud = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tpStud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStud)).BeginInit();
@@ -60,6 +61,7 @@
             // 
             // tpStud
             // 
+            this.tpStud.Controls.Add(this.lCountStud);
             this.tpStud.Controls.Add(this.btnStud);
             this.tpStud.Controls.Add(this.dataGridViewStud);
             this.tpStud.Controls.Add(this.cbGroups);
@@ -93,7 +95,7 @@
             this.dataGridViewStud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStud.Location = new System.Drawing.Point(7, 105);
             this.dataGridViewStud.Name = "dataGridViewStud";
-            this.dataGridViewStud.Size = new System.Drawing.Size(654, 330);
+            this.dataGridViewStud.Size = new System.Drawing.Size(654, 299);
             this.dataGridViewStud.TabIndex = 4;
             // 
             // cbGroups
@@ -166,6 +168,15 @@
             this.tpTeacher.Text = "Преподаватели";
             this.tpTeacher.UseVisualStyleBackColor = true;
             // 
+            // lCountStud
+            // 
+            this.lCountStud.AutoSize = true;
+            this.lCountStud.Location = new System.Drawing.Point(7, 419);
+            this.lCountStud.Name = "lCountStud";
+            this.lCountStud.Size = new System.Drawing.Size(120, 13);
+            this.lCountStud.TabIndex = 6;
+            this.lCountStud.Text = "Количество студентов";
+            // 
             // FormMy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,6 +207,7 @@
         private System.Windows.Forms.ComboBox cbGroups;
         private System.Windows.Forms.Label labelGroups;
         private System.Windows.Forms.Button btnStud;
+        private System.Windows.Forms.Label lCountStud;
     }
 }
 

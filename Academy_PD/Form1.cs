@@ -123,11 +123,17 @@ JOIN Directions ON direction= direction_id";
             }
 
             LoadStudents($"direction_name = '{cbStud.SelectedItem.ToString()}'");
+            CountStudent();
         }
 
         private void cbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadStudents($"group_name = '{cbGroups.SelectedItem.ToString()}'");
+            CountStudent();
+        }
+        void CountStudent ()
+        {
+            lCountStud.Text = $"Количество студентов: {(dataGridViewStud.RowCount-1).ToString()}"; 
         }
     }
 

@@ -149,6 +149,12 @@ JOIN Directions ON direction= direction_id";
         {
 
         }
+
+        private void btnStud_Click(object sender, EventArgs e)
+        {
+            FormStud formStud = new FormStud();
+            formStud.ShowDialog();
+        }
     }
 
 }

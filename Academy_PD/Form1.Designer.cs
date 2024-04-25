@@ -87,6 +87,7 @@
             this.btnStud.TabIndex = 5;
             this.btnStud.Text = "Добавить";
             this.btnStud.UseVisualStyleBackColor = true;
+            this.btnStud.Click += new System.EventHandler(this.btnStud_Click);
             // 
             // dataGridViewStud
             // 

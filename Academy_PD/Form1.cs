@@ -143,8 +143,7 @@ JOIN Directions ON direction= direction_id";
         {
             label2.Text = $"Количество групп: {(cbGroups.Items.Count-1).ToString()}"; 
         }
-        
-        
+                
         private void labelDirectionStud_Click(object sender, EventArgs e)
         {
 
@@ -154,6 +153,32 @@ JOIN Directions ON direction= direction_id";
         {
             FormStud formStud = new FormStud();
             formStud.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                DataTable table = new DataTable("Students");
+                SqlCommand cmd = new SqlCommand("Select * From Students WHERE last_name = @stud_id or last_name LIKE  @last_name", connection);
+                cmd.Parameters.AddWithValue("stud_id", richTextBox.Text);
+                cmd.Parameters.AddWithValue("last_name", string.Format("%0%", richTextBox));
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(table);
+                dataGridViewStud.DataSource = table;
+                                
+                connection.Close();
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+        }
+
+        private void richTextBox_TextChanged(object sender, EventArgs e)
+        {
+           btnSearch.PerformClick();
         }
     }
 

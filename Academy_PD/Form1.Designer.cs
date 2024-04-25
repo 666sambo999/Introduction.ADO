@@ -42,6 +42,8 @@
             this.tpTeacher = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
             this.tpStud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStud)).BeginInit();
@@ -62,6 +64,8 @@
             // 
             // tpStud
             // 
+            this.tpStud.Controls.Add(this.richTextBox);
+            this.tpStud.Controls.Add(this.btnSearch);
             this.tpStud.Controls.Add(this.label2);
             this.tpStud.Controls.Add(this.label1);
             this.tpStud.Controls.Add(this.btnStud);
@@ -81,7 +85,7 @@
             // btnStud
             // 
             this.btnStud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStud.Location = new System.Drawing.Point(574, 10);
+            this.btnStud.Location = new System.Drawing.Point(295, 11);
             this.btnStud.Name = "btnStud";
             this.btnStud.Size = new System.Drawing.Size(75, 23);
             this.btnStud.TabIndex = 5;
@@ -106,7 +110,7 @@
             this.cbGroups.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbGroups.FormattingEnabled = true;
-            this.cbGroups.Location = new System.Drawing.Point(146, 12);
+            this.cbGroups.Location = new System.Drawing.Point(76, 13);
             this.cbGroups.Name = "cbGroups";
             this.cbGroups.Size = new System.Drawing.Size(194, 21);
             this.cbGroups.TabIndex = 3;
@@ -124,7 +128,7 @@
             // labelDirectionStud
             // 
             this.labelDirectionStud.AutoSize = true;
-            this.labelDirectionStud.Location = new System.Drawing.Point(8, 51);
+            this.labelDirectionStud.Location = new System.Drawing.Point(8, 59);
             this.labelDirectionStud.Name = "labelDirectionStud";
             this.labelDirectionStud.Size = new System.Drawing.Size(122, 13);
             this.labelDirectionStud.TabIndex = 1;
@@ -136,9 +140,9 @@
             this.cbStud.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStud.FormattingEnabled = true;
-            this.cbStud.Location = new System.Drawing.Point(146, 51);
+            this.cbStud.Location = new System.Drawing.Point(136, 51);
             this.cbStud.Name = "cbStud";
-            this.cbStud.Size = new System.Drawing.Size(329, 21);
+            this.cbStud.Size = new System.Drawing.Size(258, 21);
             this.cbStud.TabIndex = 0;
             this.cbStud.SelectedIndexChanged += new System.EventHandler(this.cbStud_SelectedIndexChanged);
             // 
@@ -190,6 +194,28 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Количество групп";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Location = new System.Drawing.Point(393, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.Location = new System.Drawing.Point(488, 11);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(168, 23);
+            this.richTextBox.TabIndex = 9;
+            this.richTextBox.Text = "";
+            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            // 
             // FormMy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +248,8 @@
         private System.Windows.Forms.Button btnStud;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.RichTextBox richTextBox;
     }
 }
 

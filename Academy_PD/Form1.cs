@@ -20,9 +20,9 @@ namespace Academy_PD
     {
         string connectionString;
         SqlConnection connection;
-        //SqlCommand command;
-        SqlDataReader reader;
-        DataTable table;
+        ////SqlCommand command;
+        //SqlDataReader reader;
+        //DataTable table;
 
         public FormMy()
         {
@@ -33,7 +33,7 @@ namespace Academy_PD
                 Console.WriteLine(connectionString);
                 //FreeConsole();
             }
-            connection = new SqlConnection(connectionString);
+            //connection = new SqlConnection(connectionString);
             //command = new SqlCommand(connection);
             LoadStudents();
             LoadGroupsCB("Groups", "group_name", cbGroups);

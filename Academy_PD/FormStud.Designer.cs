@@ -94,7 +94,7 @@
             // richTextBoxLast
             // 
             this.richTextBoxLast.Location = new System.Drawing.Point(145, 3);
-            this.richTextBoxLast.MaxLength = 256;
+            this.richTextBoxLast.MaxLength = 128;
             this.richTextBoxLast.Multiline = false;
             this.richTextBoxLast.Name = "richTextBoxLast";
             this.richTextBoxLast.Size = new System.Drawing.Size(206, 19);
@@ -105,7 +105,7 @@
             // 
             this.richTextBoxFirst.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.richTextBoxFirst.Location = new System.Drawing.Point(146, 33);
-            this.richTextBoxFirst.MaxLength = 256;
+            this.richTextBoxFirst.MaxLength = 128;
             this.richTextBoxFirst.Multiline = false;
             this.richTextBoxFirst.Name = "richTextBoxFirst";
             this.richTextBoxFirst.Size = new System.Drawing.Size(205, 22);
@@ -115,7 +115,7 @@
             // richTextBoxMiddle
             // 
             this.richTextBoxMiddle.Location = new System.Drawing.Point(145, 63);
-            this.richTextBoxMiddle.MaxLength = 256;
+            this.richTextBoxMiddle.MaxLength = 128;
             this.richTextBoxMiddle.Multiline = false;
             this.richTextBoxMiddle.Name = "richTextBoxMiddle";
             this.richTextBoxMiddle.Size = new System.Drawing.Size(206, 22);

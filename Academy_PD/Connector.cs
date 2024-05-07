@@ -22,13 +22,12 @@ namespace Academy_PD
         {
             connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
             connection = new SqlConnection(connectionString);
-            
         }
         public DataTable LoadTableBase(string columns, string tables, string condition = null)
         {
              connection.Open();
              string query = $"Select {columns} From {tables}";
-             if (condition != null) 
+             if (condition != null && !condition.Contains("Все")) 
              {
                  query += $" WHERE {condition}";
              }
@@ -45,6 +44,29 @@ namespace Academy_PD
              connection.Close();
              // возвращaем таблицу
              return Datatable;
+        }
+        public void InsertDataToBase(string table, string column, string values) 
+        { 
+            string command = $"Insert INTO {table}({column}) VALUES {values}";
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(command, connection);
+            cmd.ExecuteNonQuery();
+
+            connection.Close();
+        
+        }
+        public int GetIdByVales(string table, string columns, string values) 
+        { 
+            //int id = 0;
+            string command = $"Select {columns.Split()[0]} From {table.Split()[1]} = '{values}'";
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(command, connection);
+            //cmd.ExecuteNonQuery();
+
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            connection.Close();
+            return id;
         }
                 
           

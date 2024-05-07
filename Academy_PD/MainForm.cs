@@ -36,8 +36,8 @@ namespace Academy_PD
             //connection = new SqlConnection(connectionString);
             //command = new SqlCommand(connection);
             LoadStudents();
-            LoadGroupsCB("Groups", "group_name", cbGroups);
-            LoadGroupsCB("Directions", "direction_name", cbStud);
+            FormDataLoad.LoadGroupsCB("Groups", "group_name", cbGroups, null, "Все");
+            FormDataLoad.LoadGroupsCB("Directions", "direction_name", cbStud, null, "Все");
             CountStudent();
             CountGroups();
         }
@@ -92,34 +92,34 @@ namespace Academy_PD
             dataGridViewStud.DataSource = connector.LoadTableBase(columns, tables, condition);
         }
 
-        void LoadGroupsCB(string table, string colume, ComboBox box,string condition=null)
-        {
-            box.Items.Clear();
-            box.Items.Add("Все");
-            box.SelectedIndex = 0;
-            //string cmd = $"Select {colume} From {table}";
-            //if (condition != null) 
-            //{
-            //    cmd += $" WHERE {condition}";
-            //}
-            //Console.WriteLine(cmd);
-            //connection.Open();
-            //SqlCommand command = new SqlCommand(cmd, connection);
-            //reader = command.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    box.Items.Add(reader[0]);// reader - указывает на строку(строк состоит из полей)
-            //}
-            //connection.Close();
-            Connector connector = new Connector();
-            connector.LoadTableBase(colume, table, condition);
-            string[] items = new string[connector.Datatable.Rows.Count];
-            for(int i  = 0; i < items.Length;i++)
-            {
-                items[i] = connector.Datatable.Rows[i][0].ToString();    
-            }
-            box.Items.AddRange(items);
-        }
+        //void LoadGroupsCB(string table, string colume, ComboBox box,string condition=null)
+        //{
+        //    box.Items.Clear();
+        //    box.Items.Add("Все");
+        //    box.SelectedIndex = 0;
+        //    //string cmd = $"Select {colume} From {table}";
+        //    //if (condition != null) 
+        //    //{
+        //    //    cmd += $" WHERE {condition}";
+        //    //}
+        //    //Console.WriteLine(cmd);
+        //    //connection.Open();
+        //    //SqlCommand command = new SqlCommand(cmd, connection);
+        //    //reader = command.ExecuteReader();
+        //    //while (reader.Read())
+        //    //{
+        //    //    box.Items.Add(reader[0]);// reader - указывает на строку(строк состоит из полей)
+        //    //}
+        //    //connection.Close();
+        //    Connector connector = new Connector();
+        //    connector.LoadTableBase(colume, table, condition);
+        //    string[] items = new string[connector.Datatable.Rows.Count];
+        //    for(int i  = 0; i < items.Length;i++)
+        //    {
+        //        items[i] = connector.Datatable.Rows[i][0].ToString();    
+        //    }
+        //    box.Items.AddRange(items);
+        //}
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -133,16 +133,16 @@ namespace Academy_PD
         private void cbStud_SelectedIndexChanged(object sender, EventArgs e)
         {
             //cbGroups.Items.Clear();
-            if (cbStud.SelectedIndex>0)
-            {
-                string condition = $"direction = direction_id AND direction_name = '{cbStud.SelectedItem.ToString()}'";
-                LoadGroupsCB("Groups, Directions", "group_name", cbGroups, condition);
-            }
-            else
-            {
-                LoadGroupsCB("Groups", "group_name", cbGroups);
-            }
-
+            //if (cbStud.SelectedIndex>0)
+            //{
+            //    string condition = $"direction = direction_id AND direction_name = '{cbStud.SelectedItem.ToString()}'";
+            //    LoadGroupsCB("Groups, Directions", "group_name", cbGroups, condition);
+            //}
+            //else
+            //{
+            //    LoadGroupsCB("Groups", "group_name", cbGroups);
+            //}
+            FormDataLoad.GroupsFilter(cbStud, cbGroups);
             LoadStudents($"direction_name = '{cbStud.SelectedItem.ToString()}'");
             CountStudent();
             CountGroups();

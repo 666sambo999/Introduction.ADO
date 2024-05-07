@@ -39,15 +39,15 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbDirection = new System.Windows.Forms.Label();
+            this.comboBoxDirection = new System.Windows.Forms.ComboBox();
             this.lbGroup = new System.Windows.Forms.Label();
-            this.richTextBoxDirection = new System.Windows.Forms.RichTextBox();
-            this.richTextBoxGroup = new System.Windows.Forms.RichTextBox();
+            this.lbDirection = new System.Windows.Forms.Label();
+            this.comboBoxGroups = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelContact = new System.Windows.Forms.Label();
-            this.richTextBoxContact = new System.Windows.Forms.RichTextBox();
-            this.labelEmail = new System.Windows.Forms.Label();
             this.richTextBoxEmail = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxContact = new System.Windows.Forms.RichTextBox();
+            this.labelContact = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancal = new System.Windows.Forms.Button();
             this.btnBrauw = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
             // 
             this.lbFirstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbFirstName.AutoSize = true;
-            this.lbFirstName.Location = new System.Drawing.Point(28, 38);
+            this.lbFirstName.Location = new System.Drawing.Point(3, 40);
             this.lbFirstName.Name = "lbFirstName";
             this.lbFirstName.Size = new System.Drawing.Size(29, 13);
             this.lbFirstName.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.lbMiddleName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbMiddleName.AutoSize = true;
-            this.lbMiddleName.Location = new System.Drawing.Point(29, 69);
+            this.lbMiddleName.Location = new System.Drawing.Point(3, 73);
             this.lbMiddleName.Name = "lbMiddleName";
             this.lbMiddleName.Size = new System.Drawing.Size(54, 13);
             this.lbMiddleName.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             this.lbLastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(24, 7);
+            this.lbLastName.Location = new System.Drawing.Point(3, 7);
             this.lbLastName.Name = "lbLastName";
             this.lbLastName.Size = new System.Drawing.Size(56, 13);
             this.lbLastName.TabIndex = 0;
@@ -93,7 +93,7 @@
             // 
             // richTextBoxLast
             // 
-            this.richTextBoxLast.Location = new System.Drawing.Point(145, 3);
+            this.richTextBoxLast.Location = new System.Drawing.Point(147, 3);
             this.richTextBoxLast.MaxLength = 128;
             this.richTextBoxLast.Multiline = false;
             this.richTextBoxLast.Name = "richTextBoxLast";
@@ -104,7 +104,7 @@
             // richTextBoxFirst
             // 
             this.richTextBoxFirst.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.richTextBoxFirst.Location = new System.Drawing.Point(146, 33);
+            this.richTextBoxFirst.Location = new System.Drawing.Point(147, 36);
             this.richTextBoxFirst.MaxLength = 128;
             this.richTextBoxFirst.Multiline = false;
             this.richTextBoxFirst.Name = "richTextBoxFirst";
@@ -114,7 +114,7 @@
             // 
             // richTextBoxMiddle
             // 
-            this.richTextBoxMiddle.Location = new System.Drawing.Point(145, 63);
+            this.richTextBoxMiddle.Location = new System.Drawing.Point(147, 69);
             this.richTextBoxMiddle.MaxLength = 128;
             this.richTextBoxMiddle.Multiline = false;
             this.richTextBoxMiddle.Name = "richTextBoxMiddle";
@@ -125,7 +125,7 @@
             // lbBirth
             // 
             this.lbBirth.AutoSize = true;
-            this.lbBirth.Location = new System.Drawing.Point(28, 96);
+            this.lbBirth.Location = new System.Drawing.Point(3, 94);
             this.lbBirth.Name = "lbBirth";
             this.lbBirth.Size = new System.Drawing.Size(86, 13);
             this.lbBirth.TabIndex = 6;
@@ -133,7 +133,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(145, 91);
+            this.dateTimePicker1.Location = new System.Drawing.Point(147, 97);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(206, 20);
             this.dateTimePicker1.TabIndex = 7;
@@ -169,10 +169,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.67403F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.32597F));
-            this.tableLayoutPanel1.Controls.Add(this.richTextBoxGroup, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBoxDirection, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxDirection, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbGroup, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbDirection, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxGroups, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 220);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -180,6 +180,25 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 57);
             this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // comboBoxDirection
+            // 
+            this.comboBoxDirection.FormattingEnabled = true;
+            this.comboBoxDirection.Location = new System.Drawing.Point(142, 3);
+            this.comboBoxDirection.Name = "comboBoxDirection";
+            this.comboBoxDirection.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxDirection.TabIndex = 17;
+            this.comboBoxDirection.SelectedIndexChanged += new System.EventHandler(this.comboBoxDirection_SelectedIndexChanged);
+            // 
+            // lbGroup
+            // 
+            this.lbGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbGroup.AutoSize = true;
+            this.lbGroup.Location = new System.Drawing.Point(48, 36);
+            this.lbGroup.Name = "lbGroup";
+            this.lbGroup.Size = new System.Drawing.Size(42, 13);
+            this.lbGroup.TabIndex = 10;
+            this.lbGroup.Text = "Группа";
             // 
             // lbDirection
             // 
@@ -191,31 +210,13 @@
             this.lbDirection.TabIndex = 10;
             this.lbDirection.Text = "направление обучения";
             // 
-            // lbGroup
+            // comboBoxGroups
             // 
-            this.lbGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbGroup.AutoSize = true;
-            this.lbGroup.Location = new System.Drawing.Point(49, 36);
-            this.lbGroup.Name = "lbGroup";
-            this.lbGroup.Size = new System.Drawing.Size(42, 13);
-            this.lbGroup.TabIndex = 10;
-            this.lbGroup.Text = "Группа";
-            // 
-            // richTextBoxDirection
-            // 
-            this.richTextBoxDirection.Location = new System.Drawing.Point(143, 3);
-            this.richTextBoxDirection.Name = "richTextBoxDirection";
-            this.richTextBoxDirection.Size = new System.Drawing.Size(208, 22);
-            this.richTextBoxDirection.TabIndex = 10;
-            this.richTextBoxDirection.Text = "";
-            // 
-            // richTextBoxGroup
-            // 
-            this.richTextBoxGroup.Location = new System.Drawing.Point(143, 31);
-            this.richTextBoxGroup.Name = "richTextBoxGroup";
-            this.richTextBoxGroup.Size = new System.Drawing.Size(208, 23);
-            this.richTextBoxGroup.TabIndex = 10;
-            this.richTextBoxGroup.Text = "";
+            this.comboBoxGroups.FormattingEnabled = true;
+            this.comboBoxGroups.Location = new System.Drawing.Point(142, 31);
+            this.comboBoxGroups.Name = "comboBoxGroups";
+            this.comboBoxGroups.Size = new System.Drawing.Size(212, 21);
+            this.comboBoxGroups.TabIndex = 18;
             // 
             // tableLayoutPanel2
             // 
@@ -235,15 +236,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 62);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
-            // labelContact
+            // richTextBoxEmail
             // 
-            this.labelContact.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelContact.AutoSize = true;
-            this.labelContact.Location = new System.Drawing.Point(42, 9);
-            this.labelContact.Name = "labelContact";
-            this.labelContact.Size = new System.Drawing.Size(56, 13);
-            this.labelContact.TabIndex = 11;
-            this.labelContact.Text = "Контакты";
+            this.richTextBoxEmail.Location = new System.Drawing.Point(144, 34);
+            this.richTextBoxEmail.MaxLength = 25;
+            this.richTextBoxEmail.Name = "richTextBoxEmail";
+            this.richTextBoxEmail.Size = new System.Drawing.Size(207, 25);
+            this.richTextBoxEmail.TabIndex = 11;
+            this.richTextBoxEmail.Text = "";
             // 
             // richTextBoxContact
             // 
@@ -254,6 +254,16 @@
             this.richTextBoxContact.TabIndex = 11;
             this.richTextBoxContact.Text = "";
             // 
+            // labelContact
+            // 
+            this.labelContact.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelContact.AutoSize = true;
+            this.labelContact.Location = new System.Drawing.Point(42, 9);
+            this.labelContact.Name = "labelContact";
+            this.labelContact.Size = new System.Drawing.Size(56, 13);
+            this.labelContact.TabIndex = 11;
+            this.labelContact.Text = "Контакты";
+            // 
             // labelEmail
             // 
             this.labelEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -263,15 +273,6 @@
             this.labelEmail.Size = new System.Drawing.Size(32, 13);
             this.labelEmail.TabIndex = 11;
             this.labelEmail.Text = "Email";
-            // 
-            // richTextBoxEmail
-            // 
-            this.richTextBoxEmail.Location = new System.Drawing.Point(144, 34);
-            this.richTextBoxEmail.MaxLength = 25;
-            this.richTextBoxEmail.Name = "richTextBoxEmail";
-            this.richTextBoxEmail.Size = new System.Drawing.Size(207, 25);
-            this.richTextBoxEmail.TabIndex = 11;
-            this.richTextBoxEmail.Text = "";
             // 
             // btnSave
             // 
@@ -302,6 +303,7 @@
             this.btnBrauw.TabIndex = 14;
             this.btnBrauw.Text = "обзор";
             this.btnBrauw.UseVisualStyleBackColor = true;
+            this.btnBrauw.Click += new System.EventHandler(this.btnBrauw_Click);
             // 
             // btnDelete
             // 
@@ -366,8 +368,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lbDirection;
         private System.Windows.Forms.Label lbGroup;
-        private System.Windows.Forms.RichTextBox richTextBoxGroup;
-        private System.Windows.Forms.RichTextBox richTextBoxDirection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.RichTextBox richTextBoxContact;
         private System.Windows.Forms.Label labelContact;
@@ -378,5 +378,7 @@
         private System.Windows.Forms.Button btnBrauw;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.PictureBox pictureBoxStud;
+        private System.Windows.Forms.ComboBox comboBoxDirection;
+        private System.Windows.Forms.ComboBox comboBoxGroups;
     }
 }

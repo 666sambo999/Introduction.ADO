@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMy));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpStud = new System.Windows.Forms.TabPage();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnStud = new System.Windows.Forms.Button();
             this.dataGridViewStud = new System.Windows.Forms.DataGridView();
             this.cbGroups = new System.Windows.Forms.ComboBox();
@@ -40,10 +44,6 @@
             this.tpGroups = new System.Windows.Forms.TabPage();
             this.tpSchudule = new System.Windows.Forms.TabPage();
             this.tpTeacher = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
             this.tpStud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStud)).BeginInit();
@@ -81,6 +81,46 @@
             this.tpStud.TabIndex = 0;
             this.tpStud.Text = "Студенты";
             this.tpStud.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox
+            // 
+            this.richTextBox.Location = new System.Drawing.Point(407, 13);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(168, 23);
+            this.richTextBox.TabIndex = 9;
+            this.richTextBox.Text = "";
+            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Location = new System.Drawing.Point(581, 13);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(173, 410);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Количество групп";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 410);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Количество студентов";
             // 
             // btnStud
             // 
@@ -175,46 +215,6 @@
             this.tpTeacher.TabIndex = 3;
             this.tpTeacher.Text = "Преподаватели";
             this.tpTeacher.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 410);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Количество студентов";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 410);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Количество групп";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(393, 11);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // richTextBox
-            // 
-            this.richTextBox.Location = new System.Drawing.Point(488, 11);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(168, 23);
-            this.richTextBox.TabIndex = 9;
-            this.richTextBox.Text = "";
-            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
             // 
             // FormMy
             // 

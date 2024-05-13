@@ -53,6 +53,7 @@
             this.btnBrauw = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.pictureBoxStud = new System.Windows.Forms.PictureBox();
+            this.labelID = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -171,8 +172,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.32597F));
             this.tableLayoutPanel1.Controls.Add(this.comboBoxDirection, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbGroup, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbDirection, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxGroups, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbDirection, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 220);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -277,7 +278,7 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Location = new System.Drawing.Point(388, 256);
+            this.btnSave.Location = new System.Drawing.Point(388, 285);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 12;
@@ -288,7 +289,7 @@
             // btnCancal
             // 
             this.btnCancal.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancal.Location = new System.Drawing.Point(505, 256);
+            this.btnCancal.Location = new System.Drawing.Point(505, 285);
             this.btnCancal.Name = "btnCancal";
             this.btnCancal.Size = new System.Drawing.Size(75, 23);
             this.btnCancal.TabIndex = 13;
@@ -317,7 +318,7 @@
             // pictureBoxStud
             // 
             this.pictureBoxStud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBoxStud.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxStud.Image")));
+            this.pictureBoxStud.Image = global::Academy_PD.Properties.Resources._579763_hd_star_wars_wallpaper_1900x1200;
             this.pictureBoxStud.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxStud.InitialImage")));
             this.pictureBoxStud.Location = new System.Drawing.Point(388, 13);
             this.pictureBoxStud.Name = "pictureBoxStud";
@@ -326,11 +327,21 @@
             this.pictureBoxStud.TabIndex = 16;
             this.pictureBoxStud.TabStop = false;
             // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(395, 256);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(99, 13);
+            this.labelID.TabIndex = 17;
+            this.labelID.Text = "id студента в базе";
+            // 
             // FormStud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 320);
+            this.Controls.Add(this.labelID);
             this.Controls.Add(this.pictureBoxStud);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBrauw);
@@ -342,7 +353,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormStud";
-            this.Text = "Добавление студента";
+            this.Text = "студент";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -351,6 +362,7 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStud)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -380,5 +392,6 @@
         private System.Windows.Forms.PictureBox pictureBoxStud;
         private System.Windows.Forms.ComboBox comboBoxDirection;
         private System.Windows.Forms.ComboBox comboBoxGroups;
+        private System.Windows.Forms.Label labelID;
     }
 }

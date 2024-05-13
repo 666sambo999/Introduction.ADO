@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMy));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpStud = new System.Windows.Forms.TabPage();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@
             // 
             // tpStud
             // 
+            this.tpStud.Controls.Add(this.btnUpdate);
             this.tpStud.Controls.Add(this.richTextBox);
             this.tpStud.Controls.Add(this.btnSearch);
             this.tpStud.Controls.Add(this.label2);
@@ -81,6 +83,15 @@
             this.tpStud.TabIndex = 0;
             this.tpStud.Text = "Студенты";
             this.tpStud.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(581, 54);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "обновить";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // richTextBox
             // 
@@ -141,9 +152,13 @@
             this.dataGridViewStud.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewStud.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStud.Location = new System.Drawing.Point(7, 92);
+            this.dataGridViewStud.MultiSelect = false;
             this.dataGridViewStud.Name = "dataGridViewStud";
+            this.dataGridViewStud.ReadOnly = true;
+            this.dataGridViewStud.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewStud.Size = new System.Drawing.Size(654, 315);
             this.dataGridViewStud.TabIndex = 4;
+            this.dataGridViewStud.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStud_CellDoubleClick);
             // 
             // cbGroups
             // 
@@ -250,6 +265,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.RichTextBox richTextBox;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

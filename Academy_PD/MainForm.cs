@@ -38,8 +38,10 @@ namespace Academy_PD
             LoadStudents();
             FormDataLoad.LoadGroupsCB("Groups", "group_name", cbGroups, null, "Все");
             FormDataLoad.LoadGroupsCB("Directions", "direction_name", cbStud, null, "Все");
+            
             CountStudent();
             CountGroups();
+            
         }
         
         void LoadStudents(string condition = null)
@@ -78,6 +80,7 @@ namespace Academy_PD
             //            dataGridViewStud.DataSource = table; 
             //            connection.Close();
             string columns = $@"
+                [ID] = stud_id,
                 [Ф.И.О] = FORMATMESSAGE ('%s %s %s', last_name, first_name, middle_name),
                 [Дата рождения] = birth_date,
                 [Группа] = group_name,
@@ -90,6 +93,7 @@ namespace Academy_PD
             else condition = relation;
             Connector connector = new Connector();
             dataGridViewStud.DataSource = connector.LoadTableBase(columns, tables, condition);
+            dataGridViewStud.Columns[0].Visible = false;// скрываем первую колонку
         }
 
         //void LoadGroupsCB(string table, string colume, ComboBox box,string condition=null)
@@ -156,12 +160,12 @@ namespace Academy_PD
         }
         void CountStudent ()
         {
-            label1.Text = $"Количество студентов: {(dataGridViewStud.RowCount-1).ToString()}"; 
+            label1.Text = $"Количество студентов: {(dataGridViewStud.RowCount).ToString()}"; 
         }
 
         void CountGroups()
         {
-            label2.Text = $"Количество групп: {(cbGroups.Items.Count-1).ToString()}"; 
+            label2.Text = $"Количество групп: {(cbGroups.Items.Count).ToString()}"; 
         }
                 
         private void labelDirectionStud_Click(object sender, EventArgs e)
@@ -172,7 +176,9 @@ namespace Academy_PD
         private void btnStud_Click(object sender, EventArgs e)
         {
             FormStud formStud = new FormStud();
-            formStud.ShowDialog();
+            DialogResult result = formStud.ShowDialog();
+            if (result == DialogResult.OK) LoadStudents();
+            CountStudent();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -200,6 +206,41 @@ namespace Academy_PD
         {
            btnSearch.PerformClick();
         }
+
+        private void dataGridViewStud_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //form.InitForm(dataGridViewStud.SelectedRows[0])
+            int id = Convert.ToInt32(dataGridViewStud.SelectedCells[0].Value);
+            Console.WriteLine($"Id:{id}");
+            Connector connector = new Connector();
+            connector.LoadTableBase("*", "Students", $"stud_id ={id}");
+            FormStud form = new FormStud();
+            form.InitForm(connector.Datatable);
+            form.ShowDialog();
+
+        }
+
+        //public void  UpdateTable()
+        //{
+        //    connection.Open();
+        //    DataTable table = new DataTable("Students");
+        //    SqlCommand cmd = new SqlCommand($"Select * From Students");
+        //    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+        //    adapter.Fill(table);
+        //    dataGridViewStud.DataSource = table;
+        //    connection.Close();
+        //}
+
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    UpdateTable();
+        //    timer1.Start();
+        //}
+
+        //private void FormMy_Load(object sender, EventArgs e)
+        //{
+        //    timer1.Start();
+        //}
     }
 
 }
